@@ -20,7 +20,7 @@ int main(){
         
         O_RDONLY = receive message only
         */
-        mqd_t mqd = mq_open("/file_message_queue", O_RDONLY);
+        mqd_t mqd = mq_open("/message_queue", O_RDONLY);
         int num = 0;
         char buffer[1024];
         while(1){
@@ -34,7 +34,7 @@ int main(){
                 num++;
             }else {
                 printf("\n%d\n", num);
-                mq_unlink("/file_message_queue");
+                mq_unlink("/message_queue");
                 exit(0);
             }
         }
@@ -65,7 +65,7 @@ int main(){
                * Other: read
              = -rw-r--r--
         */
-        mqd_t mqd = mq_open("/file_message_queue", O_CREAT | O_WRONLY, 0644, &attributes);
+        mqd_t mqd = mq_open("/message_queue", O_CREAT | O_WRONLY, 0644, &attributes);
         FILE* file = fopen("file.txt", "r");
         char buffer[1024];
         while (fscanf(file, "%s", buffer) > 0) {
