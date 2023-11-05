@@ -3,8 +3,7 @@
 #include <stdio.h>    
 #include <unistd.h>   
 
-#define MAX_INCREMENTS 15  // Define a constant for the maximum counter increments
-
+#define MAX_INCREMENTS 15  
 int counter = 0;           
 pthread_mutex_t mutex;     // Declare a mutex for synchronizing access to the counter
 
