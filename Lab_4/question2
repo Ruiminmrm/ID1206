@@ -1,0 +1,39 @@
+What are the inode values of file1.txt and file2.txt?
+
+525220 -rw-rw-r-- 2 carl carl 10 dec  2 15:50 file1.txt
+525220 -rw-rw-r-- 2 carl carl 10 dec  2 15:50 file2.txt
+
+Are they the same or different?
+
+The same.
+
+Do the two files have the same - or different - contents?
+
+The same.
+
+Are the contents of file1.txt and file2.txt the same or different after changing the content of file2?
+
+Still the same, the content of file1 changed as well.
+
+Does file2.txt still exist as well after removing file1.txt?
+
+Yes!
+
+What system call is used for removing file2.txt?
+
+unlinkat(AT_FDCWD, "file2,txt", 0) = 0
+
+Are the inodes of file3.txt and file4.txt the same or unique?
+
+Unique!
+
+Have the contents of file3.txt been altered as well after changing the contents of file4.txt?
+
+Yes!
+
+What happens to when you attempt to edit file4.txt after removing file3.txt?
+
+file4.txt becomes read-only, and the contents disappered. The reason is that the file it links to no longer exists,
+so the operating system can not find the file to open or edit. This type of link does not store any content, but
+the path to the file that actually stores it, thus file3.txt.
+
